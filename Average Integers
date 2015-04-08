@@ -1,0 +1,40 @@
+# Denis Prokopenko
+
+print("Assignment #5")
+print("Denis Prokopenko")
+print("Inputing numbers and solving for average and other key numbers")
+print("Enter main() to start\n")
+
+def main():
+
+    #declarations
+    count =0
+    total =0
+    average =0
+    posetive =0
+    negative =0
+    
+    # do the initial input to start loop later
+    integer = eval(input('Enter an integer,\n"Enter 0 to quit the input": '))
+    if (integer>0):
+            posetive += 1
+    elif (integer<0):
+            negative += 1
+    
+    # start the loop
+    while (integer != 0):
+        count = count +1
+        total = total + integer
+        integer = eval(input('"Enter 0 to quit the input": '))
+        if (integer>0):
+            posetive += 1
+        elif (integer<0):
+            negative += 1
+    if (count == 0):
+        print('No numbers were entered')
+    elif (count>0):
+        print('There were', posetive, 'Posetive(s) entered')
+        print('There were', negative, 'Negative(s) entered')
+        print('The Total is:', total)
+        print('The Average is:', format((total/count),".2f"))
+        
