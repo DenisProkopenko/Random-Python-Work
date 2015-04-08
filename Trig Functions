@@ -1,0 +1,39 @@
+# Denis Prokopenko
+import math
+
+print("Assignment #4")
+print("Denis Prokopenko\n")
+print("Solving for Quadratic Equasions\nType s() to START\n")
+
+# initiation
+def s():
+    print("Example: a*x^2 + b*x +c")
+    
+    # user inputs
+    a = eval(input('Enter a value for "a": '))
+    b = eval(input('Enter a value for "b": '))
+    c = eval(input('Enter a value for "c": '))
+    
+    # math inside sqrt, to see if number is posetive
+    discriminant = (math.pow(b,2)-4*a*c)
+    
+    # start testing conditions
+
+    # test a = 0
+    if (a == 0):
+        print('a cannot = 0, this is not a quadratic equation')
+
+    # test discriminant if it is <
+    elif (discriminant <0):
+        print('the discriminant is negative, this is not a real number')
+        # test discriminant if it is >
+    elif (discriminant >0):
+        # do the math
+        answer_1 = (-b + math.sqrt(discriminant))/(2*a)
+        answer_2 = (-b - math.sqrt(discriminant))/(2*a)
+        print("Two possible roots:", round(answer_1,2), "and", round(answer_2,2))
+
+    # test discriminant if it is == 0
+    else:
+        # final condition
+        print('One possible root: ', round((-b/(2*a)),2))
