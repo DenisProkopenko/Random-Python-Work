@@ -1,0 +1,52 @@
+# Denis Prokopenko
+
+print("Denis Prokopenko")
+print("Calculating Area and Perimeter of a rectangle\nBy using their Width and Height")
+
+#main function
+def main():
+
+    #ask for the width input
+    width = eval(input('\nEnter Width: '))
+    
+    #error chec Width
+    if width==0:
+        print('Opps, width cannot = 0')
+        main()
+    elif width<0:
+        print('Opps, width cannot be negative')
+        main()
+
+    #ask for height input, if passed the width error checking
+    if width>0:
+        height = eval(input('Enter Height: '))
+
+        #error check Height
+        if height==0:
+            print('Opps, height cannot = 0')
+            main()
+        elif height<0:
+            print('Opps, height cannot be negative')
+            main()
+        else:
+            #call functions to do their math
+            area = getArea(width,height)
+            perimeter = getPerimeter(width,height)
+
+            # printing results
+            print("Area:",area)
+            print("Perimeter",perimeter)
+            main()
+
+#function for the Area
+def getArea(width,height):
+    area = height*width
+    return area
+
+#function for the Perimeter
+def getPerimeter(width,height):
+    perimeter = 2*(height+width)
+    return perimeter
+
+#execute the main function from the start
+main()
