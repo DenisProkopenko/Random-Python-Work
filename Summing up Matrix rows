@@ -1,0 +1,68 @@
+#This program creates a 3by3 matrix and alows the user to
+#input the elements, then prints the elements and then
+#adds up the elements in each row.
+
+#Denis Prokopenko
+
+#main function
+def main():
+        row = 0
+        column = 0
+        
+        #gets the matrix,then returns it with inputed values
+        matrix=getMatrix(row,column)
+        
+        #prints off the inuted matrix
+        printMatrix(matrix,row)
+        
+        #prints the sums the values in each row
+        while (row<3):
+                rowSum = sumMatrix(matrix,row)
+                print('Sum of row',row+1,'is:',rowSum)
+                row += 1
+#function to input elements in matrix
+def getMatrix(row,column):
+        #create an empty array
+        matrix=[[]]
+        count = 0
+        countMax = 9
+
+        print('Enter the elements in the 3by3 matrix row by row')
+        while(count < countMax):
+                x = eval(input("Enter an element: "))
+                matrix[row].append(x)
+                column += 1
+                count += 1
+                if (column == 3 or column == 6):
+                        #add an array to the matrix
+                        matrix.append([])
+                        row += 1
+        return matrix
+#function to print out matrix row by row
+def printMatrix(matrix,row):
+        while (row<3):
+                print(matrix[row])
+                row += 1
+        return 0
+#function to sum up matrix rows
+def sumMatrix(matrix,row):
+        rowSum = sum(matrix[row])
+        return rowSum
+main()
+#output
+Enter the elements in the 3by3 matrix row by row
+Enter an element: 1
+Enter an element: 2
+Enter an element: 3
+Enter an element: 4
+Enter an element: 5
+Enter an element: 6
+Enter an element: 7
+Enter an element: 8
+Enter an element: 9
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 9]
+Sum of row 1 is: 6
+Sum of row 2 is: 15
+Sum of row 3 is: 24
