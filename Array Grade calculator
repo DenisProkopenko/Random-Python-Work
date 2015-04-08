@@ -1,0 +1,90 @@
+#This program takes a list of scores and places them in a list
+#the program uses a -999 as a sentinental value to stop inputing scores
+
+#Denis Prokopenko
+
+#main function
+def main():
+    #create an empty list
+    scores = []
+    
+    #initiate the inputScores function
+    #allow it the right to use the empty list I just created
+    #then return the filled list back to the main()
+    scores = inputScores(scores)
+
+    #initiate the checkScores function
+    #allow it to use the "NOW filled" list
+    checkScores(scores)
+        
+#start inputing scores into the list scores[]
+#then loop until -999 is entered
+def inputScores(scores):
+    #input
+    print('You are now entering student(s) scores')
+    print('Enter -999 to "quit" entering scores\n')
+    score = eval(input('Enter a Score: '))
+    
+    #start loop, continue loop untill -999 is entered
+    while score !=-999:
+        #create +1 empty spot at the end of my list scores[]
+        #add the inputed score to the newely created empty spot in scores[]
+        scores.append(score)
+        
+        #prompt the user for another input inside the loop
+        score = eval(input('Enter a Score: '))
+    
+    return scores
+
+#start checking each index in the list and compare the value it holds
+#print out the Letter Grade that the value falls into
+def checkScores(scores):
+
+    #find the length of the full list
+    #subtract one, because index doesnt start at 1, but at 0
+    #subtracting 1 is not nessesary but it will impact the loop later
+    #[[[example]]] when index is 5(0,1,2,3,4,5) the length is 6(zero is counted)
+    listLength = len(scores)-1
+
+    #x = index value, to start checking the list from start of input
+    x=0
+
+    #seperate inputs from outputs
+    print('\n')
+    
+    #start loop
+    #check list from start (index of x=0)
+    while (x<=listLength):
+        if (scores[x]>=90):
+            print('Score of:',scores[x],'Is an A')
+        elif (scores[x]>=80):
+            print('Score of:',scores[x],'Is a  B')
+        elif (scores[x]>=70):
+            print('Score of:',scores[x],'Is a  C')
+        elif (scores[x]>=60):
+            print('Score of:',scores[x],'Is a  D')
+        else:
+            print('Score of:',scores[x],'Is an F')
+
+        #inciment index by one, to go to the next inputed score    
+        x+=1
+    
+main()
+
+#output
+You are now entering student(s) scores
+Enter -999 to "quit" entering scores
+
+Enter a Score: 92
+Enter a Score: 72
+Enter a Score: 82
+Enter a Score: 52
+Enter a Score: 62
+Enter a Score: -999
+
+
+Score of: 92 Is an A
+Score of: 72 Is a  C
+Score of: 82 Is a  B
+Score of: 52 Is an F
+Score of: 62 Is a  D
