@@ -1,0 +1,49 @@
+#This program checks the inputs, then calculates the GCD
+
+#Denis Prokopenko
+
+#main function
+def main():
+        m=eval(input('Enter Number "1" '))
+        n=eval(input('Enter Number "2" '))
+        temp=n
+
+        n=gcd(m,n)
+        print('GCD for',m,'and',temp,'is:',n)
+
+#recursive function to find GCD
+def gcd(m, n):
+        if (m<=0 or n<=0):
+                print('Numbers 1 and 2 must be > 0')
+                return 'Error'
+        elif((m % n) == 0):
+                return n
+        
+        #restart gcd function
+        return gcd(n, (m%n))
+
+#auto start main()
+main()
+
+#output
+Enter Number "1" 12
+Enter Number "2" 8
+GCD for 12 and 8 is: 4
+
+Enter Number "1" 8
+Enter Number "2" 8
+GCD for 8 and 8 is: 8
+
+Enter Number "1" 13
+Enter Number "2" 17
+GCD for 13 and 17 is: 1
+
+Enter Number "1" 0
+Enter Number "2" 8
+GCD for 0 and 8 is: Error
+Numbers 1 and 2 must be > 0
+
+Enter Number "1" 8
+Enter Number "2" 0
+GCD for 8 and 0 is: Error
+Numbers 1 and 2 must be > 0
